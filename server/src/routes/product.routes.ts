@@ -9,6 +9,7 @@ productRouter.get('/admin', requireAdmin, productController.getAllAdmin);
 // Image management — registered before /:id so 'images' is not captured as a product id
 productRouter.patch('/images/:imageId/primary', requireAdmin, productController.setImagePrimary);
 productRouter.delete('/images/:imageId', requireAdmin, productController.removeImage);
+productRouter.post('/:id/images', requireAdmin, productController.addImage);
 productRouter.get('/:id', productController.getById);
 productRouter.post('/', requireAdmin, productController.create);
 productRouter.put('/:id', requireAdmin, productController.update);

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import api from '../../services/api';
+import { uploadToCloudinary } from '../../services/cloudinary';
 import { ApiResponse, Category, Product, ProductImage } from '../../types';
 import { lkr } from '../../utils/format';
 
@@ -179,7 +179,6 @@ export default function AdminProductsPage() {
   }
 
   async function handleUpload() {
-    // Fix 1: read from state, not from DOM ref — survives re-renders from auto-save
     const file = selectedFile;
     if (!file) return;
 
@@ -192,29 +191,23 @@ export default function AdminProductsPage() {
 
     setUploading(true);
     setUploadError('');
-    const formData = new FormData();
-    formData.append('image', file);
-    formData.append('product_id', pid);
-    formData.append('is_primary', String(isPrimary));
-
     try {
-      // Use raw axios (not the api instance) so the default Content-Type: application/json
-      // header is not present — the browser then sets multipart/form-data with the correct boundary.
-      const credentials = localStorage.getItem('admin_credentials');
-      const res = await axios.post<ApiResponse<ProductImage>>(
-        '/api/upload/product-image',
-        formData,
-        credentials ? { headers: { Authorization: `Basic ${credentials}` } } : undefined
-      );
+      // 1. Upload directly to Cloudinary from the browser (unsigned preset)
+      const cloudinaryUrl = await uploadToCloudinary(file);
+
+      // 2. Save the returned URL to the database via our API
+      const res = await api.post<ApiResponse<ProductImage>>(`/products/${pid}/images`, {
+        cloudinary_url: cloudinaryUrl,
+        is_primary: isPrimary,
+      });
       const uploaded = res.data.data!;
-      // Fix 2: append to images list (don't clear), demote others locally if primary
       setModal((prev) => ({
         ...prev,
         images: isPrimary
           ? [...prev.images.map((i) => ({ ...i, is_primary: false })), uploaded]
           : [...prev.images, uploaded],
       }));
-      resetUploadState(); // only clears the file picker — thumbnails stay
+      resetUploadState();
       await load();
     } catch (err) {
       setUploadError(getApiError(err));

@@ -120,4 +120,26 @@ export const productController = {
       next(err);
     }
   },
+
+  async addImage(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const schema = z.object({
+        cloudinary_url: z.string().url('Invalid Cloudinary URL'),
+        is_primary: z.boolean().default(false),
+      });
+      const parsed = schema.safeParse(req.body);
+      if (!parsed.success) {
+        next(new AppError(parsed.error.errors[0].message, 400));
+        return;
+      }
+      const image = await productRepository.addImage(
+        req.params.id,
+        parsed.data.cloudinary_url,
+        parsed.data.is_primary
+      );
+      res.status(201).json(successResponse(image));
+    } catch (err) {
+      next(err);
+    }
+  },
 };
