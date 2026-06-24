@@ -16,7 +16,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'https://mani-production-a577.up.railway.app',
+  origin: [
+    'https://mani-production-a577.up.railway.app',
+    'http://localhost:5173'
+  ],
   credentials: true,
 }));
 app.use(express.json());
