@@ -7,7 +7,7 @@ import Nav from '../../components/layout/Nav';
 import Footer from '../../components/layout/Footer';
 import ProductCard from '../../components/shop/ProductCard';
 
-const px = 'px-8 md:px-16 lg:px-24';
+const px = 'px-5 sm:px-8 md:px-16 lg:px-24';
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -31,10 +31,10 @@ export default function HomePage() {
 
       <main className="pt-[72px]">
         {/* ── Hero ─────────────────────────────────────────────────── */}
-        <section className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[calc(100vh-72px)] lg:h-[calc(100vh-72px)] border-b border-border">
+        <section className="grid grid-cols-1 lg:grid-cols-[55%_45%] min-h-[calc(100vh-72px)] border-b border-border">
 
           {/* Left — text */}
-          <div className="flex flex-col justify-between px-8 md:px-16 lg:pl-24 lg:pr-16 py-14 border-b border-border lg:border-b-0 lg:border-r lg:border-border">
+          <div className="flex flex-col justify-between px-5 sm:px-8 md:px-16 lg:pl-24 lg:pr-16 py-10 sm:py-14 border-b border-border lg:border-b-0 lg:border-r lg:border-border">
             {/* Eyebrow */}
             <div className="flex items-center justify-between">
               <span className="font-body text-[10px] tracking-[0.35em] text-ink-3 uppercase">
@@ -47,7 +47,7 @@ export default function HomePage() {
 
             {/* Heading */}
             <div>
-              <h1 className="font-display text-[clamp(3.5rem,7vw,8rem)] leading-[1.02] tracking-[-0.02em] text-ink">
+              <h1 className="font-display text-[clamp(2.8rem,7vw,8rem)] leading-[1.02] tracking-[-0.02em] text-ink">
                 Jewellery<br />
                 as Quiet<br />
                 Poetry.
@@ -55,7 +55,7 @@ export default function HomePage() {
             </div>
 
             {/* Subtitle + CTA */}
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 sm:gap-8">
               <p className="font-body text-sm text-ink-2 font-light leading-relaxed max-w-[34ch]">
                 Handcrafted pieces that carry<br />
                 the weight of stillness.
@@ -67,7 +67,7 @@ export default function HomePage() {
           </div>
 
           {/* Right — video */}
-          <div className="relative overflow-hidden aspect-[3/4] lg:aspect-auto">
+          <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[3/4] lg:aspect-auto lg:h-full">
             <video
               autoPlay
               muted
@@ -84,9 +84,9 @@ export default function HomePage() {
 
         {/* ── Featured Pieces ──────────────────────────────────────── */}
         {!loading && products.length > 0 && (
-          <section className={`${px} py-20 border-b border-border`}>
-            <div className="flex items-baseline justify-between mb-12">
-              <h2 className="font-display text-3xl md:text-4xl text-ink">
+          <section className={`${px} py-14 sm:py-20 border-b border-border`}>
+            <div className="flex items-baseline justify-between mb-8 sm:mb-12">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-ink">
                 Featured Pieces
               </h2>
               <Link
@@ -97,7 +97,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -107,12 +107,12 @@ export default function HomePage() {
 
         {/* ── Custom Made ──────────────────────────────────────────── */}
         <section style={{ backgroundColor: '#1C1C1A' }}>
-          <div className={`${px} py-24`}>
-            <div className="mb-16">
+          <div className={`${px} py-16 sm:py-24`}>
+            <div className="mb-12 sm:mb-16">
               <p className="font-body text-[10px] tracking-[0.4em] uppercase mb-5" style={{ color: '#D4A5A5' }}>
                 — Bespoke Creation —
               </p>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1.06] mb-6" style={{ color: '#FAF8F5' }}>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl leading-[1.06] mb-6" style={{ color: '#FAF8F5' }}>
                 Made For You
               </h2>
               <p className="font-body text-sm font-light leading-relaxed max-w-[44ch]" style={{ color: '#A8A49F' }}>
@@ -121,7 +121,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-10 mb-12 sm:mb-16">
               {([
                 {
                   num: '01',
@@ -190,9 +190,9 @@ export default function HomePage() {
         </section>
 
         {/* ── Philosophy ───────────────────────────────────────────── */}
-        <section className={`${px} py-24 bg-surface border-b border-border`}>
+        <section className={`${px} py-16 sm:py-24 bg-surface border-b border-border`}>
           <div className="max-w-xl mx-auto text-center">
-            <p className="font-body text-[10px] tracking-[0.4em] text-ink-3 uppercase mb-12">
+            <p className="font-body text-[10px] tracking-[0.4em] text-ink-3 uppercase mb-10 sm:mb-12">
               — The Philosophy —
             </p>
 
@@ -201,14 +201,14 @@ export default function HomePage() {
               a breath held still.&rdquo;
             </blockquote>
 
-            <hr className="border-t border-border mt-14 mb-10" />
+            <hr className="border-t border-border mt-12 sm:mt-14 mb-8 sm:mb-10" />
 
             <p className="font-body text-sm text-ink-2 font-light leading-relaxed">
-              We make jewellery for those who find beauty in restraint.<br />
+              We make jewellery for those who find beauty in restraint.<br className="hidden sm:block" />
               Every piece is handcrafted to be worn quietly, noticed slowly.
             </p>
 
-            <Link to="/shop" className="btn-outline mt-12 inline-block">
+            <Link to="/shop" className="btn-outline mt-10 sm:mt-12 inline-block">
               Discover the Collection
             </Link>
           </div>

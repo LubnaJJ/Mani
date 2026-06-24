@@ -109,17 +109,18 @@ export default function AdminCategoriesPage() {
   }
 
   return (
-    <div className="p-12">
+    <div className="p-4 sm:p-8 lg:p-12">
       {/* Header */}
-      <div className="flex items-baseline justify-between mb-12 border-b border-border pb-6">
-        <h1 className="font-display text-3xl text-ink">Categories</h1>
+      <div className="flex items-baseline justify-between mb-8 sm:mb-12 border-b border-border pb-6">
+        <h1 className="font-display text-2xl sm:text-3xl text-ink">Categories</h1>
         <button onClick={openAdd} className="btn-primary">
           + Add Category
         </button>
       </div>
 
       {/* Table */}
-      <div className="border border-border">
+      <div className="border border-border overflow-x-auto">
+        <div className="min-w-[400px]">
         {/* Table head */}
         <div className="grid grid-cols-[1fr_1fr_auto] gap-0 border-b border-border bg-surface">
           {['Name', 'Slug', 'Actions'].map((h) => (
@@ -193,15 +194,16 @@ export default function AdminCategoriesPage() {
             </div>
           ))
         )}
+        </div>
       </div>
 
       {/* Modal */}
       {modal.open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink/40"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="w-full max-w-md bg-bg border border-border">
+          <div className="w-full sm:max-w-md bg-bg border border-border">
             {/* Modal header */}
             <div className="px-8 py-5 border-b border-border flex items-center justify-between">
               <p className="font-body text-[10px] tracking-[0.25em] text-ink-2 uppercase">

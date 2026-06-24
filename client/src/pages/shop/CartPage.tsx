@@ -5,7 +5,7 @@ import Nav from '../../components/layout/Nav';
 import Footer from '../../components/layout/Footer';
 import { lkr } from '../../utils/format';
 
-const px = 'px-8 md:px-16 lg:px-24';
+const px = 'px-5 sm:px-8 md:px-16 lg:px-24';
 
 function getPrimaryImage(product: Product): string | null {
   const imgs = product.product_images ?? [];
@@ -50,15 +50,15 @@ export default function CartPage() {
 
       <main className="pt-[72px]">
         {/* ── Header ───────────────────────────────────────────── */}
-        <div className={`${px} py-12 border-b border-border`}>
-          <h1 className="font-display text-4xl text-ink">Cart</h1>
+        <div className={`${px} py-8 sm:py-12 border-b border-border`}>
+          <h1 className="font-display text-3xl sm:text-4xl text-ink">Cart</h1>
           <p className="font-body text-[11px] text-ink-3 tracking-[0.15em] mt-1.5">
             {itemCount} {itemCount === 1 ? 'item' : 'items'}
           </p>
         </div>
 
         {/* ── Content ──────────────────────────────────────────── */}
-        <div className={`${px} py-16 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16`}>
+        <div className={`${px} py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 sm:gap-16`}>
 
           {/* ── Items list ─────────────────────────────────────── */}
           <div>
@@ -162,7 +162,7 @@ export default function CartPage() {
 
           {/* ── Order summary ──────────────────────────────────── */}
           <div>
-            <div className="border border-border bg-surface p-8 sticky top-[88px]">
+            <div className="border border-border bg-surface p-6 sm:p-8 sm:sticky sm:top-[88px]">
               <p className="font-body text-[10px] tracking-[0.3em] text-ink-2 uppercase mb-7">
                 Summary
               </p>

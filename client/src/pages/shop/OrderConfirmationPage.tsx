@@ -7,7 +7,7 @@ import { lkr } from '../../utils/format';
 import Nav from '../../components/layout/Nav';
 import Footer from '../../components/layout/Footer';
 
-const px = 'px-8 md:px-16 lg:px-24';
+const px = 'px-5 sm:px-8 md:px-16 lg:px-24';
 
 function shortId(id: string) {
   return id.slice(0, 8).toUpperCase();
@@ -141,11 +141,11 @@ export default function OrderConfirmationPage() {
 
       <main className="pt-[72px]">
         {/* ── Header ─────────────────────────────────────────── */}
-        <div className={`${px} py-16 border-b border-border`}>
+        <div className={`${px} py-10 sm:py-16 border-b border-border`}>
           <p className="font-body text-[10px] tracking-[0.3em] text-ink-3 uppercase mb-4">
             Order #{shortId(order.id)}
           </p>
-          <h1 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] mb-4">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl text-ink leading-[1.1] mb-4">
             Thank you,<br />
             {order.customer_name.split(' ')[0]}.
           </h1>
@@ -156,7 +156,7 @@ export default function OrderConfirmationPage() {
 
         {/* ── Content ────────────────────────────────────────── */}
         <div
-          className={`${px} py-16 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-16`}
+          className={`${px} py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 sm:gap-16`}
         >
           {/* ── Left: Next steps ───────────────────────────── */}
           <div>
@@ -306,7 +306,7 @@ export default function OrderConfirmationPage() {
                       <button
                         onClick={handleUpload}
                         disabled={!selectedFile || uploading}
-                        className="btn-primary disabled:opacity-40 self-start"
+                        className="btn-primary disabled:opacity-40 w-full sm:w-auto sm:self-start"
                       >
                         {uploading ? 'Uploading…' : 'Upload Slip'}
                       </button>
@@ -319,7 +319,7 @@ export default function OrderConfirmationPage() {
 
           {/* ── Right: Order summary ──────────────────────────── */}
           <div>
-            <div className="border border-border bg-surface p-8 sticky top-[88px]">
+            <div className="border border-border bg-surface p-6 sm:p-8 sm:sticky sm:top-[88px]">
               <p className="font-body text-[10px] tracking-[0.3em] text-ink-2 uppercase mb-6">
                 Your Order
               </p>

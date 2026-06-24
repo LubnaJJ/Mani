@@ -198,7 +198,7 @@ export default function CustomOrderPage() {
       <div className="min-h-screen bg-bg">
         <Nav />
         <main className="pt-[72px]">
-          <div className="px-8 md:px-16 lg:px-24 py-24 max-w-2xl">
+          <div className="px-5 sm:px-8 md:px-16 lg:px-24 py-14 sm:py-24 max-w-2xl">
             <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-6">
               — Order Confirmed —
             </p>
@@ -300,7 +300,7 @@ export default function CustomOrderPage() {
       <Nav />
       <main className="pt-[72px]">
         {/* Page header */}
-        <div className="px-8 md:px-16 lg:px-24 py-12 border-b border-border">
+        <div className="px-5 sm:px-8 md:px-16 lg:px-24 py-8 sm:py-12 border-b border-border">
           <p className="font-body text-[10px] tracking-[0.35em] text-accent uppercase mb-3">
             — Bespoke —
           </p>
@@ -308,8 +308,8 @@ export default function CustomOrderPage() {
         </div>
 
         {/* Step indicator */}
-        <div className="px-8 md:px-16 lg:px-24 py-8 border-b border-border">
-          <div className="flex items-center gap-0 max-w-sm">
+        <div className="px-5 sm:px-8 md:px-16 lg:px-24 py-6 sm:py-8 border-b border-border">
+          <div className="flex items-center gap-0">
             {[1, 2, 3].map((n, i) => (
               <div key={n} className="flex items-center">
                 <div className={[
@@ -324,16 +324,19 @@ export default function CustomOrderPage() {
                   </span>
                 </div>
                 {i < 2 && (
-                  <div className={['h-px w-16 transition-colors duration-300', step > n ? 'bg-ink' : 'bg-border'].join(' ')} />
+                  <div className={['h-px w-8 sm:w-16 transition-colors duration-300', step > n ? 'bg-ink' : 'bg-border'].join(' ')} />
                 )}
               </div>
             ))}
-            <div className="ml-8 flex gap-8">
+            <div className="ml-5 sm:ml-8 flex gap-4 sm:gap-8">
               {['Build', 'Details', 'Review'].map((label, i) => (
-                <span key={label} className={[
-                  'font-body text-[10px] tracking-[0.18em] uppercase transition-colors duration-300',
-                  step === i + 1 ? 'text-ink' : 'text-ink-3',
-                ].join(' ')}>
+                <span
+                  key={label}
+                  className={[
+                    'font-body text-[10px] tracking-[0.18em] uppercase transition-colors duration-300',
+                    step === i + 1 ? 'text-ink' : 'text-ink-3 hidden sm:inline',
+                  ].join(' ')}
+                >
                   {label}
                 </span>
               ))}
@@ -345,7 +348,7 @@ export default function CustomOrderPage() {
         <div
           key={step}
           style={{ animation: 'step-fade-in 0.35s ease-out both' }}
-          className="px-8 md:px-16 lg:px-24 py-14 max-w-3xl"
+          className="px-5 sm:px-8 md:px-16 lg:px-24 py-10 sm:py-14 max-w-3xl"
         >
 
           {/* ── STEP 1: Build Your Bracelet ── */}
@@ -396,7 +399,7 @@ export default function CustomOrderPage() {
                   Charms <span className="normal-case tracking-normal text-ink-3">(up to {MAX_CHARMS} — {form.charms.length} selected)</span>
                 </p>
                 {catalogLoading ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mt-6">
                     {Array.from({ length: 8 }).map((_, i) => (
                       <div key={i} className="border border-border p-4 flex flex-col items-center gap-2.5">
                         <div className="w-7 h-7 bg-surface animate-pulse" />
@@ -405,7 +408,7 @@ export default function CustomOrderPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mt-6">
                     {charms.map(charm => {
                       const selected = form.charms.includes(charm.id);
                       const maxed = !selected && form.charms.length >= MAX_CHARMS;
@@ -649,7 +652,7 @@ export default function CustomOrderPage() {
               {/* Payment method */}
               <div>
                 <p className={sectionHead}>Payment Method</p>
-                <div className="grid grid-cols-2 gap-4 mt-4 max-w-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 max-w-lg">
                   {(
                     [
                       { value: 'cod', label: 'Cash on Delivery', sub: 'Pay when your order arrives' },

@@ -129,10 +129,10 @@ export default function AdminOrdersPage() {
     products.find((p) => p.id === productId)?.name ?? productId.slice(0, 8) + '…';
 
   return (
-    <div className="p-12">
+    <div className="p-4 sm:p-8 lg:p-12">
       {/* Header */}
-      <div className="flex items-baseline justify-between mb-12 border-b border-border pb-6">
-        <h1 className="font-display text-3xl text-ink">Orders</h1>
+      <div className="flex items-baseline justify-between mb-8 sm:mb-12 border-b border-border pb-6">
+        <h1 className="font-display text-2xl sm:text-3xl text-ink">Orders</h1>
         <span className="font-body text-[11px] text-ink-3">
           {orders.length} {orders.length === 1 ? 'order' : 'orders'}
         </span>
@@ -249,7 +249,7 @@ export default function AdminOrdersPage() {
           />
 
           {/* Drawer */}
-          <aside className="fixed top-0 right-0 h-screen w-[420px] z-50 bg-bg border-l border-border flex flex-col overflow-hidden">
+          <aside className="fixed top-0 right-0 h-screen w-full sm:w-[420px] z-50 bg-bg border-l border-border flex flex-col overflow-hidden">
             {/* Drawer header */}
             <div className="flex items-center justify-between px-8 py-5 border-b border-border flex-shrink-0">
               <p className="font-body text-[10px] tracking-[0.25em] text-ink-2 uppercase">

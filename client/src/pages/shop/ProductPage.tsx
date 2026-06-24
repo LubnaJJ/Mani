@@ -7,7 +7,7 @@ import { useCartStore } from '../../store/cart.store';
 import Nav from '../../components/layout/Nav';
 import Footer from '../../components/layout/Footer';
 
-const px = 'px-8 md:px-16 lg:px-24';
+const px = 'px-5 sm:px-8 md:px-16 lg:px-24';
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -61,7 +61,7 @@ export default function ProductPage() {
 
       <main className="pt-[72px]">
         {/* ── Back link ────────────────────────────────────────── */}
-        <div className={`${px} pt-10 pb-0`}>
+        <div className={`${px} pt-6 sm:pt-10 pb-0`}>
           <Link
             to="/shop"
             className="font-body text-[11px] text-ink-3 tracking-[0.18em] uppercase hover:text-ink-2 transition-colors duration-200"
@@ -72,7 +72,7 @@ export default function ProductPage() {
 
         {/* ── Loading skeleton ─────────────────────────────────── */}
         {loading && (
-          <div className={`${px} py-16 grid grid-cols-1 lg:grid-cols-2 gap-16`}>
+          <div className={`${px} py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16`}>
             <div>
               <div className="aspect-[3/4] bg-surface animate-pulse" />
               <div className="flex gap-2 mt-3">
@@ -106,7 +106,7 @@ export default function ProductPage() {
 
         {/* ── Product detail ───────────────────────────────────── */}
         {!loading && product && (
-          <div className={`${px} py-16 grid grid-cols-1 lg:grid-cols-2 gap-16`}>
+          <div className={`${px} py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16`}>
 
             {/* ── Left: Image gallery ──────────────────────────── */}
             <div>
@@ -229,7 +229,7 @@ export default function ProductPage() {
                   <button
                     onClick={handleAddToCart}
                     disabled={added}
-                    className="btn-primary disabled:opacity-60"
+                    className="btn-primary disabled:opacity-60 w-full sm:w-auto text-center"
                   >
                     {added ? 'Added to Cart' : 'Add to Cart'}
                   </button>

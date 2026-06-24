@@ -47,9 +47,9 @@ export default function AdminDashboardPage() {
 
   if (loading) {
     return (
-      <div className="p-12">
+      <div className="p-4 sm:p-8 lg:p-12">
         <div className="h-4 w-32 bg-surface animate-pulse mb-12" />
-        <div className="grid grid-cols-3 gap-px bg-border mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border mb-12">
           {[1, 2, 3].map((i) => (
             <div key={i} className="bg-bg h-32 animate-pulse" />
           ))}
@@ -60,7 +60,7 @@ export default function AdminDashboardPage() {
 
   if (error || !stats) {
     return (
-      <div className="p-12">
+      <div className="p-4 sm:p-8 lg:p-12">
         <p className="font-body text-sm text-accent-dark">{error || 'No data.'}</p>
       </div>
     );
@@ -78,10 +78,10 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <div className="p-12">
+    <div className="p-4 sm:p-8 lg:p-12">
       {/* Header */}
-      <div className="flex items-baseline justify-between mb-12 border-b border-border pb-6">
-        <h1 className="font-display text-3xl text-ink">Dashboard</h1>
+      <div className="flex items-baseline justify-between mb-8 sm:mb-12 border-b border-border pb-6">
+        <h1 className="font-display text-2xl sm:text-3xl text-ink">Dashboard</h1>
         <span className="font-body text-[11px] text-ink-3 tracking-[0.15em]">
           {new Date().toLocaleDateString('en-GB', {
             day: 'numeric',
@@ -92,9 +92,9 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border mb-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-border mb-8 sm:mb-12">
         {statCards.map(({ label, value, to, warn }) => (
-          <Link key={label} to={to} className="bg-bg p-8 group hover:bg-surface transition-colors duration-200">
+          <Link key={label} to={to} className="bg-bg p-5 sm:p-8 group hover:bg-surface transition-colors duration-200">
             <p className="font-body text-[10px] tracking-[0.25em] text-ink-3 uppercase mb-4">
               {label}
             </p>

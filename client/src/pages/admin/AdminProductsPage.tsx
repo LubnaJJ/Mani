@@ -276,10 +276,10 @@ export default function AdminProductsPage() {
   const hasId = Boolean(modal.productId);
 
   return (
-    <div className="p-12">
+    <div className="p-4 sm:p-8 lg:p-12">
       {/* Header */}
-      <div className="flex items-baseline justify-between mb-12 border-b border-border pb-6">
-        <h1 className="font-display text-3xl text-ink">Products</h1>
+      <div className="flex items-baseline justify-between mb-8 sm:mb-12 border-b border-border pb-6">
+        <h1 className="font-display text-2xl sm:text-3xl text-ink">Products</h1>
         <button onClick={openAdd} className="btn-primary">
           + Add Product
         </button>
@@ -416,10 +416,10 @@ export default function AdminProductsPage() {
       {/* Modal */}
       {modal.open && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center bg-ink/40 overflow-y-auto py-10 px-4"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-ink/40 overflow-y-auto sm:py-10 sm:px-4"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="w-full max-w-lg bg-bg border border-border">
+          <div className="w-full sm:max-w-lg bg-bg border border-border sm:border">
             {/* Modal header */}
             <div className="px-8 py-5 border-b border-border flex items-center justify-between sticky top-0 bg-bg z-10">
               <p className="font-body text-[10px] tracking-[0.25em] text-ink-2 uppercase">

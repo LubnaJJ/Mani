@@ -8,7 +8,7 @@ import { lkr } from '../../utils/format';
 import Nav from '../../components/layout/Nav';
 import Footer from '../../components/layout/Footer';
 
-const px = 'px-8 md:px-16 lg:px-24';
+const px = 'px-5 sm:px-8 md:px-16 lg:px-24';
 
 function getPrimaryImage(product: Product): string | null {
   const imgs = product.product_images ?? [];
@@ -100,7 +100,7 @@ export default function CheckoutPage() {
 
       <main className="pt-[72px]">
         {/* ── Header ───────────────────────────────────────────── */}
-        <div className={`${px} py-12 border-b border-border`}>
+        <div className={`${px} py-8 sm:py-12 border-b border-border`}>
           <div className="flex items-baseline gap-6">
             <Link
               to="/cart"
@@ -108,13 +108,13 @@ export default function CheckoutPage() {
             >
               ← Cart
             </Link>
-            <h1 className="font-display text-4xl text-ink">Checkout</h1>
+            <h1 className="font-display text-3xl sm:text-4xl text-ink">Checkout</h1>
           </div>
         </div>
 
         {/* ── Content ──────────────────────────────────────────── */}
         <div
-          className={`${px} py-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-16`}
+          className={`${px} py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 sm:gap-16`}
         >
           {/* ── Left: Form ─────────────────────────────────────── */}
           <form onSubmit={handleSubmit} noValidate>
@@ -181,7 +181,7 @@ export default function CheckoutPage() {
                 Payment Method
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 {(
                   [
                     { value: 'cod', label: 'Cash on Delivery', sub: 'Pay when your order arrives' },
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="btn-primary disabled:opacity-50"
+                className="btn-primary disabled:opacity-50 w-full sm:w-auto text-center"
               >
                 {submitting ? 'Placing Order…' : 'Place Order'}
               </button>
@@ -281,7 +281,7 @@ export default function CheckoutPage() {
 
           {/* ── Right: Summary ─────────────────────────────────── */}
           <div>
-            <div className="border border-border bg-surface p-8 sticky top-[88px]">
+            <div className="border border-border bg-surface p-6 sm:p-8 sm:sticky sm:top-[88px]">
               <p className="font-body text-[10px] tracking-[0.3em] text-ink-2 uppercase mb-6">
                 Order Summary
               </p>

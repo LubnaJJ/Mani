@@ -276,10 +276,10 @@ function BeadColorPanel() {
       {/* Modal */}
       {modal.open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink/40"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="w-full max-w-sm bg-bg border border-border">
+          <div className="w-full sm:max-w-sm bg-bg border border-border">
             <div className="px-7 py-5 border-b border-border flex items-center justify-between">
               <p className={labelCls}>{modal.mode === 'add' ? 'Add Color' : 'Edit Color'}</p>
               <button onClick={closeModal} className="font-body text-ink-3 hover:text-ink transition-colors text-lg leading-none">
@@ -592,10 +592,10 @@ function CharmPanel() {
       {/* Modal */}
       {modal.open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-ink/40 overflow-y-auto sm:py-10 sm:px-4"
           onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
         >
-          <div className="w-full max-w-md bg-bg border border-border">
+          <div className="w-full sm:max-w-md bg-bg border border-border">
             <div className="px-7 py-5 border-b border-border flex items-center justify-between">
               <p className={labelCls}>{modal.mode === 'add' ? 'Add Charm' : 'Edit Charm'}</p>
               <button onClick={closeModal} className="font-body text-ink-3 hover:text-ink transition-colors text-lg leading-none">
@@ -691,17 +691,17 @@ function CharmPanel() {
 
 export default function AdminCustomCMSPage() {
   return (
-    <div className="p-12">
+    <div className="p-4 sm:p-8 lg:p-12">
       {/* Page header */}
-      <div className="mb-10 pb-6 border-b border-border">
-        <h1 className="font-display text-3xl text-ink">Custom Order CMS</h1>
+      <div className="mb-8 sm:mb-10 pb-6 border-b border-border">
+        <h1 className="font-display text-2xl sm:text-3xl text-ink">Custom Order CMS</h1>
         <p className="font-body text-sm text-ink-3 mt-1">
           Manage the bead colors and charms available in the custom order form.
         </p>
       </div>
 
       {/* Two-panel layout */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
         <BeadColorPanel />
         <CharmPanel />
       </div>
