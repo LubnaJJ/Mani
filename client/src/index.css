@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #faf8f5;
+    --color-ink: #1c1c1a;
+    --color-ink-2: #6b6760;
+    --color-ink-3: #a8a49f;
+    --color-accent: #d4a5a5;
+    --color-surface: #f0ede8;
+    --color-border: #e2ddd8;
+  }
+
+  html {
+    background-color: #faf8f5;
+    color: #1c1c1a;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #1c1c1a;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  ::selection {
+    background-color: #d4a5a5;
+    color: #1c1c1a;
+  }
+}
+
+@keyframes step-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bracelet-spin {
+  0%   { transform: perspective(700px) rotateX(52deg) rotateZ(0deg); }
+  25%  { transform: perspective(700px) rotateX(48deg) rotateZ(90deg); }
+  50%  { transform: perspective(700px) rotateX(52deg) rotateZ(180deg); }
+  75%  { transform: perspective(700px) rotateX(56deg) rotateZ(270deg); }
+  100% { transform: perspective(700px) rotateX(52deg) rotateZ(360deg); }
+}
+
+@layer components {
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: #1c1c1a;
+    color: #faf8f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid #1c1c1a;
+    border-radius: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.7;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: transparent;
+    color: #1c1c1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid #1c1c1a;
+    border-radius: 0;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    opacity: 0.7;
+  }
+
+  .section {
+    padding: 6rem 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 6rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding: 8rem 6rem;
+    }
+  }
+}
